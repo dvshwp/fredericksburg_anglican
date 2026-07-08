@@ -1,0 +1,321 @@
+/* =========================================================================
+   style.css  -  all the visual styling for the church website.
+
+   HOW TO READ THIS FILE (for someone learning web design):
+   - CSS is a list of "rules". Each rule has a SELECTOR (what to style) and a
+     block of PROPERTIES in { } (how to style it).
+   - The ":root" block at the very top defines COLOR + FONT variables once, so
+     you can change the whole site's look by editing a single value here.
+   - This file is written "mobile-first": the default rules are for small phone
+     screens, and the "@media (min-width...)" block near the bottom adds a few
+     tweaks for wider tablet/desktop screens.
+   ========================================================================= */
+
+
+/* -------------------------------------------------------------------------
+   1. BRAND VARIABLES  -  change these to re-theme the whole site.
+   ------------------------------------------------------------------------- */
+:root {
+  /* Colors (hex codes). These match the red-and-gold announcement image. */
+  --oxblood:    #6E1423;  /* deep burgundy / liturgical red  (header, footer) */
+  --deep-red:   #8A1C2B;  /* slightly brighter red           (links, accents) */
+  --gold:       #B68A3E;  /* antique gold                    (dividers, cross) */
+  --light-gold: #D8BE8C;  /* warm tan / light gold           (soft highlights) */
+  --cream:      #FAF5EA;  /* ivory page background */
+  --charcoal:   #2A2521;  /* near-black body text */
+  --muted:      #5E564C;  /* softer brown-grey for secondary text */
+
+  /* Fonts. We use fonts already installed on almost every device, so the site
+     is fast and needs no downloads. Headings use a classic serif; body text
+     uses a clean sans-serif. (The README explains how to swap in web fonts.) */
+  --font-heading: Georgia, "Times New Roman", "Times", serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  /* A reusable soft shadow for framing the event image. */
+  --frame-shadow: 0 6px 22px rgba(42, 37, 33, 0.28);
+}
+
+
+/* -------------------------------------------------------------------------
+   2. BASELINE  -  sensible defaults for the whole page.
+   ------------------------------------------------------------------------- */
+
+/* box-sizing: border-box makes width math predictable (padding is included). */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1.125rem;          /* ~18px: comfortable, readable body text */
+  line-height: 1.7;             /* generous spacing between lines */
+  color: var(--charcoal);
+  background-color: var(--cream);
+}
+
+/* Images never overflow their container and keep their aspect ratio. */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Headings use the serif face and the deep red brand color. */
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  color: var(--oxblood);
+  line-height: 1.25;
+  margin-top: 0;
+}
+
+/* Links: deep red, underline appears on hover/focus for a tidy look. */
+a {
+  color: var(--deep-red);
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+}
+a:hover,
+a:focus {
+  color: var(--oxblood);
+}
+
+/* Keyboard users must always SEE which element is focused (accessibility). */
+a:focus-visible,
+.button:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+
+
+/* -------------------------------------------------------------------------
+   3. LAYOUT HELPERS
+   ------------------------------------------------------------------------- */
+
+/* ".container" centers content and limits how wide it can get on big screens
+   so lines of text never become uncomfortably long to read. */
+.container {
+  width: 100%;
+  max-width: 820px;       /* comfortable reading width */
+  margin: 0 auto;         /* center horizontally */
+  padding: 0 1.25rem;     /* breathing room on the left/right on phones */
+}
+
+/* A thin decorative gold divider used between sections. */
+.divider {
+  border: none;
+  border-top: 2px solid var(--gold);
+  max-width: 120px;
+  margin: 2.5rem auto;    /* space above/below, and centered */
+  opacity: 0.8;
+}
+
+/* Vertical spacing for the main content sections. */
+.section {
+  padding: 2.5rem 0;
+}
+
+
+/* -------------------------------------------------------------------------
+   4. HEADER  (site title bar)
+   ------------------------------------------------------------------------- */
+.site-header {
+  background-color: var(--oxblood);
+  color: var(--cream);
+  text-align: center;
+  padding: 1.5rem 1rem;
+  border-bottom: 4px solid var(--gold);   /* gold accent line under the header */
+}
+
+/* The small Jerusalem Cross image sitting above the church name. */
+.site-header .brand-cross {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 0.5rem;
+}
+
+.site-header .church-name {
+  color: var(--cream);         /* override the default red heading color here */
+  margin: 0;
+  font-size: 1.9rem;
+}
+
+.site-header .tagline {
+  margin: 0.35rem 0 0;
+  color: var(--light-gold);
+  font-style: italic;
+  font-size: 1rem;
+}
+
+/* Simple top navigation (Home / Events). */
+.site-nav {
+  margin-top: 0.9rem;
+}
+.site-nav a {
+  color: var(--light-gold);
+  text-decoration: none;
+  margin: 0 0.6rem;
+  font-weight: 600;
+}
+.site-nav a:hover,
+.site-nav a:focus {
+  color: var(--cream);
+  text-decoration: underline;
+}
+
+
+/* -------------------------------------------------------------------------
+   5. HERO  +  EVENT ANNOUNCEMENT IMAGE
+   ------------------------------------------------------------------------- */
+.hero {
+  text-align: center;
+  padding-top: 2.5rem;
+}
+.hero h2 {
+  font-size: 1.6rem;
+}
+.hero .intro {
+  color: var(--muted);
+  max-width: 44ch;         /* keep the intro line short and readable */
+  margin: 0 auto 1.75rem;
+}
+
+/* The event announcement image is a TALL 5:7 PORTRAIT graphic.
+   We constrain BOTH its width and its height so that:
+     - on desktop it is a sensible ~420px wide (never a huge full-bleed banner),
+     - on a phone it always fits on screen (max-height caps it to the viewport).
+   Setting width/height to "auto" lets the browser scale the picture to fit
+   inside those limits while keeping its original proportions. */
+.event-image {
+  display: block;
+  margin: 0 auto;                 /* center it horizontally */
+  width: auto;
+  height: auto;
+  max-width: min(420px, 100%);    /* cap width; shrink on narrow phones */
+  max-height: 80vh;               /* never taller than 80% of the screen */
+  border: 1px solid var(--gold);  /* subtle gold frame */
+  border-radius: 4px;
+  box-shadow: var(--frame-shadow);/* soft shadow lifts it off the page */
+  background-color: #fff;
+}
+
+/* A tiny caption under the announcement image. */
+.event-caption {
+  margin-top: 0.9rem;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+
+/* -------------------------------------------------------------------------
+   6. INFO CARDS  (welcome, gathering times, "what is Anglican?")
+   ------------------------------------------------------------------------- */
+
+/* The "gathering" details get a soft card with a gold left border so the
+   day / time / location stand out as the most practical information. */
+.details-card {
+  background-color: #fffdf7;                 /* a hair lighter than the page */
+  border: 1px solid var(--light-gold);
+  border-left: 6px solid var(--gold);        /* strong gold accent edge */
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem auto;
+}
+.details-card p {
+  margin: 0.4rem 0;
+}
+.details-card .label {
+  font-weight: 700;
+  color: var(--oxblood);
+}
+
+
+/* -------------------------------------------------------------------------
+   7. GIVE BUTTON  (the prominent call to action)
+   ------------------------------------------------------------------------- */
+.give-section {
+  text-align: center;
+}
+
+/* ".button" is a reusable button style. The giving button uses the deep red
+   fill so it is the boldest, most obvious action on the page. */
+.button {
+  display: inline-block;
+  background-color: var(--deep-red);
+  color: var(--cream);
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  text-decoration: none;
+  padding: 0.85rem 2.2rem;
+  border-radius: 6px;
+  border: 2px solid var(--gold);
+  box-shadow: var(--frame-shadow);
+}
+.button:hover,
+.button:focus {
+  background-color: var(--oxblood);
+  color: #fff;
+}
+
+
+/* -------------------------------------------------------------------------
+   8. FOOTER
+   ------------------------------------------------------------------------- */
+.site-footer {
+  background-color: var(--oxblood);
+  color: var(--light-gold);
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 3rem;
+  border-top: 4px solid var(--gold);
+}
+.site-footer a {
+  color: var(--light-gold);
+}
+.site-footer a:hover,
+.site-footer a:focus {
+  color: #fff;
+}
+.site-footer .footer-cross {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 0.5rem;
+}
+.site-footer p {
+  margin: 0.35rem 0;
+  font-size: 0.95rem;
+}
+
+
+/* -------------------------------------------------------------------------
+   9. WIDER SCREENS  (tablet / desktop tweaks)
+   Everything above is designed for phones first. These rules only apply once
+   the screen is at least 600px wide, gently scaling a few things up.
+   ------------------------------------------------------------------------- */
+@media (min-width: 600px) {
+  body {
+    font-size: 1.2rem;
+  }
+  .site-header .church-name {
+    font-size: 2.4rem;
+  }
+  .hero h2 {
+    font-size: 2rem;
+  }
+  .section {
+    padding: 3rem 0;
+  }
+}
+
+
+/* -------------------------------------------------------------------------
+   10. REDUCED MOTION  -  respect visitors who prefer less animation.
+   (There is almost no motion on this site, but this is good practice.)
+   ------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}

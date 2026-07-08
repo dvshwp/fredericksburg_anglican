@@ -1,0 +1,7 @@
+# robots.txt tells search engines they are welcome to index the whole site.
+# "User-agent: *" means "all search engines"; "Allow: /" means "every page".
+User-agent: *
+Allow: /
+
+# Point crawlers to our sitemap. Replace the domain with your real one.
+Sitemap: https://fredericksburganglican.org/sitemap.xml

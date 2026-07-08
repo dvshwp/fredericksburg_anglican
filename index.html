@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<!--
+  index.html  -  the HOME / LANDING page of the church website.
+
+  WELCOME, WEB DESIGNER-IN-TRAINING!  A few things worth knowing:
+    * Anything between <!-​- and -​-> is a COMMENT. Comments are notes for humans;
+      the browser ignores them. This whole page is heavily commented to help you
+      learn. You can delete comments once you understand a section.
+    * Text you should fill in is written in CAPITALS inside square brackets,
+      like [CHURCH NAME], or ends in _HERE, like CONTACT_EMAIL_HERE. Search the file
+      for those and replace them with your real details.
+    * The <head> holds information ABOUT the page (title, SEO, icons). The <body>
+      holds what people actually SEE.
+-->
+<html lang="en">
+<head>
+  <!-- Character set + mobile scaling. Always keep these two lines. -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ===================================================================
+       SEARCH ENGINE INFO (SEO)
+       The <title> shows in the browser tab AND as the big blue link in Google
+       results. The description is the grey summary text under that link.
+       Both deliberately name the denomination and the town so people searching
+       for a church in this area can find us.
+       =================================================================== -->
+  <title>Fredericksburg Anglican Fellowship | Anglican Church (ACNA) in Fredericksburg, VA</title>
+  <meta name="description"
+        content="Fredericksburg Anglican Fellowship is an Anglican church plant serving Fredericksburg, Spotsylvania, and Stafford, Virginia — part of the Anglican Church in North America (ACNA) and the Diocese of the Mid-Atlantic. Join us for worship; all are welcome.">
+
+  <!-- Tells search engines the "official" address of this page.
+       Replace the domain with your real custom domain once it is set up. -->
+  <link rel="canonical" href="https://fredericksburganglican.org/">
+
+  <!-- ===================================================================
+       FAVICON / APP ICONS  (the little Jerusalem Cross in the browser tab)
+       =================================================================== -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.png" type="image/png" sizes="64x64">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <!-- ===================================================================
+       OPEN GRAPH TAGS
+       These control how the site looks when someone shares the link on
+       Facebook, iMessage, WhatsApp, etc. We use the event image as the preview
+       picture so shared links look warm and inviting.
+       =================================================================== -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Fredericksburg Anglican Fellowship | Anglican Church (ACNA) in Fredericksburg, VA">
+  <meta property="og:description"
+        content="An Anglican church plant in Fredericksburg, Virginia (ACNA, Diocese of the Mid-Atlantic). All are welcome.">
+  <meta property="og:image" content="https://fredericksburganglican.org/images/next_event.png">
+  <meta property="og:url" content="https://fredericksburganglican.org/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- ===================================================================
+       STRUCTURED DATA (Schema.org, in JSON-LD format)
+       This is a machine-readable summary of who we are. Google reads it to show
+       rich results (name, location, service times). Edit the values to match
+       your church. It does not appear visibly on the page.
+       =================================================================== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Church",
+    "name": "Fredericksburg Anglican Fellowship",
+    "url": "https://fredericksburganglican.org/",
+    "description": "An Anglican church plant in Fredericksburg, Virginia, part of the Anglican Church in North America (ACNA) and the Diocese of the Mid-Atlantic.",
+    "image": "https://fredericksburganglican.org/images/next_event.png",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "[MEETING STREET ADDRESS]",
+      "addressLocality": "Fredericksburg",
+      "addressRegion": "VA",
+      "postalCode": "[ZIP CODE]",
+      "addressCountry": "US"
+    },
+    "email": "CONTACT_EMAIL_HERE",
+    "areaServed": [
+      "Fredericksburg, VA",
+      "Spotsylvania, VA",
+      "Stafford, VA",
+      "Massaponax, VA"
+    ],
+    "sameAs": [
+      "SOCIAL_MEDIA_URL_HERE"
+    ]
+  }
+  </script>
+  <!-- NOTE: The block above intentionally has no weekly service time, because
+       your gatherings still vary from month to month. Once you settle into a regular
+       weekly time, you can add an "openingHoursSpecification" (see the README).
+       Do NOT put // or <!-​- comments INSIDE the JSON block above — JSON-LD must
+       be pure JSON or search engines will ignore it. -->
+
+  <!-- Link to our stylesheet (all the colors, fonts, and layout live there). -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- REMINDER: A free Google Business Profile (google.com/business) matters as
+       much as this website for local "church near me" searches. Create one,
+       verify your location, and add photos + service times. -->
+</head>
+
+<body>
+
+  <!-- =====================================================================
+       HEADER  -  the church name and a small Jerusalem Cross at the top.
+       ===================================================================== -->
+  <header class="site-header">
+    <!-- The Jerusalem Cross is the church's symbol. alt="" (empty) because it is
+         decorative here and the church name right below already says who we are. -->
+    <img class="brand-cross" src="favicon.svg" alt="">
+    <h1 class="church-name">[CHURCH NAME]</h1>
+    <p class="tagline">Anglican Church in North America &middot; Diocese of the Mid-Atlantic</p>
+
+    <!-- Simple navigation. Add or remove links as your site grows. -->
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="events.html">Events</a>
+    </nav>
+  </header>
+
+  <!-- =====================================================================
+       MAIN  -  the primary content of the page.
+       ===================================================================== -->
+  <main>
+
+    <!-- HERO: welcome line + the upcoming event announcement image. -->
+    <section class="hero container">
+      <h2>An Anglican church plant in Fredericksburg, Virginia</h2>
+      <p class="intro">
+        Looking for an ACNA church in Fredericksburg? We are a
+        Diocese of the Mid-Atlantic church plant, and we would love to
+        worship alongside you.
+      </p>
+
+      <!--
+        UPCOMING EVENT IMAGE  -  the most important image on the page.
+
+        HOW UPDATES WORK: to announce a new event, you simply overwrite the file
+        "images/next_event.png" with a new picture of the SAME name. You NEVER
+        need to edit this HTML. The alt text below is intentionally generic
+        ("evergreen") so it stays correct no matter which event image is showing.
+
+        NOTE FOR SEO: the date/time/place in this image are baked in as PIXELS,
+        so Google and screen readers cannot read them. That's fine for normal
+        use. IF you ever want one specific event indexed by Google, you can
+        OPTIONALLY add a JSON-LD "Event" block (see README) plus a line of real
+        text below the image — but this is not required for routine updates.
+      -->
+      <img class="event-image"
+           src="images/next_event.png"
+           alt="Announcement for our next gathering; details in the image.">
+
+      <p class="event-caption">Our next gathering — everyone is welcome.</p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- =====================================================================
+         ⭐ OUR NEXT GATHERING  -  UPDATE THIS WHENEVER YOU POST A NEW EVENT ⭐
+
+         This is the TEXT version of the announcement image. Whenever you swap in
+         a new images/next_event.png, ALSO edit the four lines inside the card
+         below so they match the new image.
+
+         WHY BOTHER, when the image already shows all this?
+         The date, time, and place inside the PNG are just coloured pixels —
+         Google and AI assistants (ChatGPT, Perplexity, Claude, etc.) literally
+         cannot read them. The lines below ARE readable by those tools, so this
+         is what lets your next gathering appear in search results and AI answers.
+         It is plain text between the > and < marks, so it is quick to edit and
+         needs no special tools. (More on this in the README.)
+         ===================================================================== -->
+    <section class="section container" id="next">
+      <h2>Our next gathering</h2>
+      <div class="details-card">
+        <!-- ↓↓↓ EDIT THESE FOUR LINES FOR EACH NEW EVENT ↓↓↓ -->
+        <p><span class="label">What:</span> [WHAT, e.g. Sunday Worship &amp; Holy Communion]</p>
+        <p><span class="label">Date:</span> [DATE, e.g. Sunday, September 14, 2025]</p>
+        <p><span class="label">Time:</span> [TIME, e.g. 10:00 AM]</p>
+        <p><span class="label">Location:</span> [VENUE NAME], [STREET ADDRESS], Fredericksburg, VA [ZIP]</p>
+        <!-- ↑↑↑ EDIT THESE FOUR LINES FOR EACH NEW EVENT ↑↑↑ -->
+      </div>
+      <p>
+        We are a new church plant, so our gatherings are still growing into a
+        regular rhythm and the schedule can change from month to month. The details
+        above always point to our <strong>next</strong> gathering, and the
+        announcement image at the top of the page shows the same event. Everyone
+        is welcome.
+      </p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- GIVE: the prominent call-to-action button linking to the diocese giving page. -->
+    <section class="section container give-section">
+      <h2>Support the mission</h2>
+      <p>
+        Your generosity helps this church plant grow and serve the Fredericksburg
+        community. Giving is handled securely through our diocese.
+      </p>
+      <!-- This is the diocese giving page (Qgiv). Update the href here if it ever changes. -->
+      <p>
+        <a class="button" href="https://secure.qgiv.com/for/dioceseofthemid-atlantic/">Give</a>
+      </p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- CONTACT: a simple email link. Replace the placeholder address. -->
+    <section class="section container" id="contact">
+      <h2>Get in touch</h2>
+      <p>
+        Have a question, or planning your first visit? We would love to hear from
+        you. Email us at
+        <a href="mailto:CONTACT_EMAIL_HERE">CONTACT_EMAIL_HERE</a>
+        and we will reply personally.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- =====================================================================
+       FOOTER  -  church name, diocese link, and giving link again.
+       ===================================================================== -->
+  <footer class="site-footer">
+    <img class="footer-cross" src="favicon.svg" alt="">
+    <p><strong>Fredericksburg Anglican Fellowship</strong> — Fredericksburg, Virginia</p>
+    <p>A church plant of the
+      <a href="https://anglicandoma.org">Diocese of the Mid-Atlantic</a>
+      (ACNA)</p>
+    <p>
+      <a href="https://secure.qgiv.com/for/dioceseofthemid-atlantic/">Give</a> &middot;
+      <a href="mailto:CONTACT_EMAIL_HERE">Contact</a> &middot;
+      <a href="events.html">Events</a>
+    </p>
+    <!-- Optional: add social links here, e.g.
+         <p><a href="SOCIAL_MEDIA_URL_HERE">Facebook</a></p> -->
+  </footer>
+
+</body>
+</html>

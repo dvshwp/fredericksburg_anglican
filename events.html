@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!--
+  events.html  -  an OPTIONAL second page listing upcoming events as real text.
+
+  Two ways to use this page:
+    1. Simplest: leave it mostly as-is. It shows the same announcement image and
+       your regular weekly gathering time.
+    2. Optional: type out specific upcoming events in the list below. Unlike the
+       announcement image, text typed here CAN be read by Google and screen
+       readers, which is helpful if you want a particular event to show up in
+       search results.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Events | Fredericksburg Anglican Fellowship — Anglican Church (ACNA), Fredericksburg VA</title>
+  <meta name="description"
+        content="Upcoming events and weekly worship times for Fredericksburg Anglican Fellowship, an Anglican (ACNA) church plant in Fredericksburg, Virginia.">
+
+  <link rel="canonical" href="https://fredericksburganglican.org/events.html">
+
+  <!-- Favicon / app icons -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.png" type="image/png" sizes="64x64">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <!-- Open Graph (share preview) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Events | Fredericksburg Anglican Fellowship, Fredericksburg VA">
+  <meta property="og:description" content="Upcoming events and weekly worship times.">
+  <meta property="og:image" content="https://fredericksburganglican.org/images/next_event.png">
+  <meta property="og:url" content="https://fredericksburganglican.org/events.html">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <img class="brand-cross" src="favicon.svg" alt="">
+    <h1 class="church-name">[CHURCH NAME]</h1>
+    <p class="tagline">Anglican Church in North America &middot; Diocese of the Mid-Atlantic</p>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="events.html">Events</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- The same announcement image (fixed path). Updating next_event.png
+         updates it here too, automatically. -->
+    <section class="hero container">
+      <h2>Upcoming events</h2>
+      <img class="event-image"
+           src="images/next_event.png"
+           alt="Announcement for our next gathering; details in the image.">
+      <p class="event-caption">Our next featured gathering.</p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- NEXT GATHERING: to avoid editing the same details in two places, the
+         readable date / time / location lives ONLY on the home page. This page
+         shows the announcement image above and links to the home page for the
+         text details, so you only ever update ONE text block per event. -->
+    <section class="section container">
+      <h2>Next gathering details</h2>
+      <p>
+        The date, time, and location of our next gathering are listed on our
+        <a href="index.html#next">home page</a> — and shown in the announcement
+        image above. Everyone is welcome.
+      </p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- OPTIONAL hand-typed event list. Once your schedule becomes more regular,
+         you can list several upcoming events here as real text (which search
+         engines and AI assistants can read). Copy a <li> line to add another
+         event, or delete this whole section if you only want the image above. -->
+    <section class="section container">
+      <h2>On the calendar</h2>
+      <ul>
+        <li>[DATE] — [EVENT NAME]: [ONE-LINE DESCRIPTION]</li>
+        <li>[DATE] — [EVENT NAME]: [ONE-LINE DESCRIPTION]</li>
+        <li>[DATE] — [EVENT NAME]: [ONE-LINE DESCRIPTION]</li>
+      </ul>
+      <p>
+        Questions about any event? Email
+        <a href="mailto:CONTACT_EMAIL_HERE">CONTACT_EMAIL_HERE</a>.
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <img class="footer-cross" src="favicon.svg" alt="">
+    <p><strong>Fredericksburg Anglican Fellowship</strong> — Fredericksburg, Virginia</p>
+    <p>A church plant of the
+      <a href="https://anglicandoma.org">Diocese of the Mid-Atlantic</a>
+      (ACNA)</p>
+    <p>
+      <a href="https://secure.qgiv.com/for/dioceseofthemid-atlantic/">Give</a> &middot;
+      <a href="mailto:CONTACT_EMAIL_HERE">Contact</a> &middot;
+      <a href="index.html">Home</a>
+    </p>
+  </footer>
+
+</body>
+</html>

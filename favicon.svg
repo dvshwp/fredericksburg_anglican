@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  favicon.svg  -  the little icon shown in the browser tab.
+  It is a gold JERUSALEM CROSS on a deep-red rounded tile, matching the church's
+  identity. Coordinates are on a simple 0-100 grid.
+    * The central "cross potent" = a cross whose four arms end in short bars.
+    * Four small plain crosses sit in the four quadrants.
+  Colors:  tile = #8A1C2B (deep red),  cross = #B68A3E (antique gold).
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Jerusalem Cross">
+  <!-- rounded red background tile -->
+  <rect x="6" y="6" width="88" height="88" rx="18" fill="#8A1C2B"/>
+
+  <!-- central cross potent -->
+  <g fill="#B68A3E">
+    <rect x="44" y="20" width="12" height="60"/>   <!-- vertical bar -->
+    <rect x="20" y="44" width="60" height="12"/>   <!-- horizontal bar -->
+    <rect x="37" y="16" width="26" height="8"/>    <!-- top cap -->
+    <rect x="37" y="76" width="26" height="8"/>    <!-- bottom cap -->
+    <rect x="16" y="37" width="8"  height="26"/>   <!-- left cap -->
+    <rect x="76" y="37" width="8"  height="26"/>   <!-- right cap -->
+
+    <!-- four small crosses, one in each quadrant -->
+    <rect x="27" y="19" width="6"  height="22"/><rect x="19" y="27" width="22" height="6"/>
+    <rect x="67" y="19" width="6"  height="22"/><rect x="59" y="27" width="22" height="6"/>
+    <rect x="27" y="59" width="6"  height="22"/><rect x="19" y="67" width="22" height="6"/>
+    <rect x="67" y="59" width="6"  height="22"/><rect x="59" y="67" width="22" height="6"/>
+  </g>
+</svg>
